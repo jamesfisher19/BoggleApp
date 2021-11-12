@@ -1,0 +1,11 @@
+.Guess-input {
+  border: 20px solid #5170A5;
+  margin: 50px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 5px 5px 5px black;
+  width: 10;
+  font-family: Bradley Hand, cursive;
+  border: 5mm ridge rgba(192,192,192);
+  box-shadow: 3px 3px 3px black;
+}

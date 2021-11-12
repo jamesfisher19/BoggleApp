@@ -1,0 +1,10 @@
+.Found-solutions-list{
+  color: #212C3E;
+  font-family: Bradley Hand, cursive;
+  background: #5170A5;
+  height: 100%;
+  box-shadow: 2px 2px 2px black;
+  border-color: silver;
+  border: 5mm ridge rgba(192,192,192);
+  font-weight: bold;
+}

@@ -1,0 +1,18 @@
+.Board-div {
+  width: 700px;
+  margin: auto;
+  font-size: 40pt;
+  font-family: Bradley Hand, cursive;
+  background: #5170A5;
+  border-color: silver;
+  border: 5mm ridge rgba(192,192,192);
+  box-shadow: 2px 2px 2px black;
+  
+}
+
+.Tile {
+  text-align: center;
+  line-height: 50px;
+  vertical-align: middle;
+  margin-right: 150px;
+}

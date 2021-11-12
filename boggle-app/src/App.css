@@ -1,0 +1,15 @@
+.App {
+  background-color: #759CDD;
+  background-attachment: scroll;
+  background-size: contain;;
+  text-align: center;
+  color: #282c34;
+  margin: auto;
+}
+
+.title{
+  color: #212C3I;
+  font-size: 80px;
+  font-family: Bradley Hand, cursive;
+  text-decoration: underline;
+}

@@ -1,0 +1,37 @@
+.Toggle-game-state {
+
+  text-align: center;
+  margin-top: -50pt;
+  margin-bottom: 25pt;
+  font-family: Bradley Hand, cursive;
+  background-color: #759CDD;
+  height: 100%;
+}
+
+
+.Toggle-game-state2 {
+  text-align: right;
+  margin-top: -50pt;
+  margin-bottom: 25pt;
+  font-family: Bradley Hand, cursive;
+  background-color: #759CDD;
+  height: 100%;
+}
+/* 
+.pencil{
+  position: fixed;
+  top: 0;
+  left: 0;
+} */
+
+.Button{
+  color: blue;
+  font-family: Bradley Hand, cursive;
+}
+
+.Input-select-size {
+  margin-top: -28.4pt;
+  margin-left: 200pt;
+  margin-bottom: 25pt;
+  font-family: Bradley Hand, cursive;
+}

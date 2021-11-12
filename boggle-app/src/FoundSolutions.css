@@ -1,0 +1,15 @@
+.Found-solutions-list {
+  text-align: center;
+  margin: 25pt;
+  background-color: #759CDD;
+  background-attachment: scroll;
+  background-size: cover;}
+
+.Found-solutions-list ul {
+  list-style-type: none;
+}
+
+.Found-solutions-list li {
+  font-size: 14pt;
+  line-height: 20pt;
+}
