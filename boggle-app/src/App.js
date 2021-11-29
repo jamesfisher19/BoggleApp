@@ -43,7 +43,7 @@ function App() {
   }, [gameState, size]);
 
   // This will run when gameState changes
-  // When a new game is started, generate a new random grid with solutions that start with specific lettter
+  // When a new game is started, generate a new random grid with solutions that start with a specific lettter
   useEffect(() => {
     const wordList = require('./full-wordlist.json');
     if (gameState === GAME_STATE.IN_PROGRESS) {
