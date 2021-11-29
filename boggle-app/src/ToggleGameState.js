@@ -10,7 +10,7 @@ import './ToggleGameState.css';
 import { collection, addDoc, query, getDocs, orderBy, limit } from "firebase/firestore";
 import db from './firebase.js';
 
-function ToggleGameState({gameState, setGameState, setSize, setTotalTime, numFound, theGrid, setGrid}) {
+function ToggleGameState({gameState, setGameState, setSize, setLetter, setTotalTime, numFound, theGrid, setGrid}) {
 
   const [buttonText, setButtonText] = useState("Start a new game!");
   const [startTime, setStartTime] = useState(0);
@@ -18,6 +18,7 @@ function ToggleGameState({gameState, setGameState, setSize, setTotalTime, numFou
   const [leaderBoard, setLeaderBoard] = useState([]);
   const [input, setInput] = useState("");
   const [deltaTime, setDeltaTime] = useState(0);
+  const [letterChoice, setLetterChoice] = useState('');
   
   let d = 0;
   
@@ -97,7 +98,6 @@ function ToggleGameState({gameState, setGameState, setSize, setTotalTime, numFou
   }
   
   const handleGridChange = (event) => {
-  
     setSize(-11111);
     setGrid(JSON.parse(event.target.value));
     console.log("theGrid = ", event.target.value); 
@@ -107,7 +107,18 @@ function ToggleGameState({gameState, setGameState, setSize, setTotalTime, numFou
     setBoardSize(event.target.value);
     setSize(event.target.value);
   };
+
+  const handleLetterChoice = (event) => {
+    setLetterChoice(event.target.value);
+    setLetter(event.target.value);
+  };
   
+  // const handleLetterLength = (event) => {
+  //   setBoardSize(event.target.value);
+  //   setSize(event.target.value);
+  // };
+  
+
   return (
     <div>
     { (gameState === GAME_STATE.BEFORE || gameState === GAME_STATE.ENDED) &&
@@ -147,13 +158,81 @@ function ToggleGameState({gameState, setGameState, setSize, setTotalTime, numFou
           <MenuItem value={7}>7</MenuItem>
           <MenuItem value={8}>8</MenuItem>
           <MenuItem value={9}>9</MenuItem>
-          <MenuItem value={10}>10</MenuItem>
+          <MenuItem value={11}>11</MenuItem>
+          <MenuItem value={12}>12</MenuItem>
         </Select>
          <FormHelperText>Set Grid Size</FormHelperText>
         </FormControl>
        </div>
       }
 
+      { (gameState === GAME_STATE.BEFORE || gameState === GAME_STATE.ENDED)  &&
+        <div className="Input-select-letter">
+        <FormControl>
+       
+        <Select
+          labelId="letterlabel"
+          id="lettermenu"
+          value=''
+          onChange={handleLetterChoice}
+        >
+          <MenuItem value={''}>None</MenuItem>
+          <MenuItem value={'a'}>a</MenuItem>
+          <MenuItem value={'b'}>b</MenuItem>
+          <MenuItem value={'c'}>c</MenuItem>
+          <MenuItem value={'d'}>d</MenuItem>
+          <MenuItem value={'e'}>e</MenuItem>
+          <MenuItem value={'f'}>f</MenuItem>
+          <MenuItem value={'g'}>g</MenuItem>
+          <MenuItem value={'h'}>h</MenuItem>
+          <MenuItem value={'i'}>i</MenuItem>
+          <MenuItem value={'j'}>j</MenuItem>
+          <MenuItem value={'k'}>k</MenuItem>
+          <MenuItem value={'l'}>l</MenuItem>
+          <MenuItem value={'m'}>m</MenuItem>
+          <MenuItem value={'n'}>n</MenuItem>
+          <MenuItem value={'o'}>o</MenuItem>
+          <MenuItem value={'p'}>p</MenuItem>
+          <MenuItem value={'q'}>q</MenuItem>
+          <MenuItem value={'r'}>r</MenuItem>
+          <MenuItem value={'s'}>s</MenuItem>
+          <MenuItem value={'t'}>t</MenuItem>
+          <MenuItem value={'u'}>u</MenuItem>
+          <MenuItem value={'v'}>v</MenuItem>
+          <MenuItem value={'w'}>w</MenuItem>
+          <MenuItem value={'x'}>x</MenuItem>
+          <MenuItem value={'y'}>y</MenuItem>
+          <MenuItem value={'z'}>z</MenuItem>
+        </Select>
+         <FormHelperText>Select Specific Letter</FormHelperText>
+        </FormControl>
+       </div>
+      }
+      {/* { (gameState === GAME_STATE.BEFORE || gameState === GAME_STATE.ENDED)  &&
+        <div className="Input-select-size">
+        <FormControl>
+       
+        <Select
+          labelId="sizelabel"
+          id="sizemenu"
+          value=''
+          onChange={handleSizeMenuChange}
+        >
+          <MenuItem value={3}>None</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={5}>5</MenuItem>
+          <MenuItem value={6}>6</MenuItem>
+          <MenuItem value={7}>7</MenuItem>
+          <MenuItem value={8}>8</MenuItem>
+          <MenuItem value={9}>9</MenuItem>
+          <MenuItem value={11}>11</MenuItem>
+          <MenuItem value={12}>12</MenuItem>
+        </Select>
+         <FormHelperText>Select Specific Letter</FormHelperText>
+        </FormControl>
+       </div>
+      } */}
       {(gameState === GAME_STATE.SHOW_LEADERBOARD) &&
         <div className="Input-select-size">
         <FormControl>

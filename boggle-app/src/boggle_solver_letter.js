@@ -71,7 +71,7 @@ function DFS(table, row, column, index, word) {
 	return correctWord;
 }
 
-export function findAllSolutions(grid, dictionary) {
+function findAllSolutions(grid, dictionary) {
 	let solutions = [];
 
 	// Turn all strings to lower case
@@ -135,18 +135,5 @@ export function findAllSolutions(grid, dictionary) {
 	}
 	return solutions;
 };
-
-const wordList = require('./full-wordlist.json');
-// Function to replace wordList with specific letter list
-export function spfLetter(wordList, letter){
-	var singleLetters = [];
-	for (let i=0; i < wordList.words.length; i++){
-		if (wordList.words[i].startsWith(letter) === true){
-			singleLetters.push(wordList.words[i]);
-		}
-	}	
-	return singleLetters;
-}
-// console.log(spfLetter(wordList, 'x'));
-
-// export default findAllSolutions;
+// console.log(exports.findAllSolutions(grid, dictionary));
+export default findAllSolutions;
