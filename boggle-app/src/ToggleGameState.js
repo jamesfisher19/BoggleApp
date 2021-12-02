@@ -10,7 +10,7 @@ import './ToggleGameState.css';
 import { collection, addDoc, query, getDocs, orderBy, limit } from "firebase/firestore";
 import db from './firebase.js';
 
-function ToggleGameState({gameState, setGameState, setSize, setLetter, setTotalTime, numFound, theGrid, setGrid}) {
+function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength, setTotalTime, numFound, theGrid, setGrid}) {
 
   const [buttonText, setButtonText] = useState("Start a new game!");
   const [startTime, setStartTime] = useState(0);
@@ -19,7 +19,8 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter, setTotalT
   const [input, setInput] = useState("");
   const [deltaTime, setDeltaTime] = useState(0);
   const [letterChoice, setLetterChoice] = useState('');
-  
+  const [lengthChoice, setLengthChoice] = useState(3);
+
   let d = 0;
   
   function updateGameState(endTime) {
@@ -73,6 +74,8 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter, setTotalT
 
     try {
       /*const docRef =*/ await addDoc(collection(db, "LeaderBoard"), {
+      letterChoice: letterChoice,
+      lengthChoice: lengthChoice,
       boardSize: boardSize,
       solveTime: deltaTime,
       numFound: numFound,    
@@ -113,16 +116,20 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter, setTotalT
     setLetter(event.target.value);
   };
   
+  const handleLengthChoice = (event) => {
+    setLengthChoice(event.target.value);
+    setLength(event.target.value);
+  };
+
   // const handleLetterLength = (event) => {
   //   setBoardSize(event.target.value);
   //   setSize(event.target.value);
   // };
   
-
   return (
     <div>
     { (gameState === GAME_STATE.BEFORE || gameState === GAME_STATE.ENDED) &&
-    <div className="Toggle-game-state2">
+    <div className="Play-existing-game">
           <Button variant="outlined" onClick={() => showLeaderBoard()} >
           Play Existing Game
           </Button>
@@ -176,7 +183,7 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter, setTotalT
           value=''
           onChange={handleLetterChoice}
         >
-          <MenuItem value={''}>None</MenuItem>
+          <MenuItem value={'None'}>None</MenuItem>
           <MenuItem value={'a'}>a</MenuItem>
           <MenuItem value={'b'}>b</MenuItem>
           <MenuItem value={'c'}>c</MenuItem>
@@ -208,17 +215,17 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter, setTotalT
         </FormControl>
        </div>
       }
-      {/* { (gameState === GAME_STATE.BEFORE || gameState === GAME_STATE.ENDED)  &&
-        <div className="Input-select-size">
+      { (gameState === GAME_STATE.BEFORE || gameState === GAME_STATE.ENDED)  &&
+        <div className="Input-select-length">
         <FormControl>
        
         <Select
-          labelId="sizelabel"
-          id="sizemenu"
+          labelId="lengthlabel"
+          id="lengthmenu"
           value=''
-          onChange={handleSizeMenuChange}
+          onChange={handleLengthChoice}
         >
-          <MenuItem value={3}>None</MenuItem>
+          <MenuItem value={null}>None</MenuItem>
           <MenuItem value={3}>3</MenuItem>
           <MenuItem value={4}>4</MenuItem>
           <MenuItem value={5}>5</MenuItem>
@@ -229,12 +236,14 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter, setTotalT
           <MenuItem value={11}>11</MenuItem>
           <MenuItem value={12}>12</MenuItem>
         </Select>
-         <FormHelperText>Select Specific Letter</FormHelperText>
+         <FormHelperText>Select Word Size</FormHelperText>
         </FormControl>
        </div>
-      } */}
+      }
+
+
       {(gameState === GAME_STATE.SHOW_LEADERBOARD) &&
-        <div className="Input-select-size">
+        <div className="Input-select-length">
         <FormControl>
           
        <Select
