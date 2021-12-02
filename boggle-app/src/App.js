@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {findAllSolutions, spfLetter} from './boggle_solver.js';
+import findAllSolutions from './boggle_solver.js';
 // import findAllSolutions from './boggle_solver_timed.js';
 import Board from './Board.js';
 import GuessInput from './GuessInput.js';
@@ -24,13 +24,14 @@ function App() {
   const [size, setSize] = useState(3);
   const [user, setUser] = useState(null);
   const [letter, setLetter] = useState();
+  const [wordLength, setLength] = useState();
   // useEffect will trigger when the array items in the second argument are
   // updated so whenever grid is updated, we will recompute the solutions
   useEffect(() => {
     const wordList = require('./full-wordlist.json');
-    let tmpAllSolutions = findAllSolutions(grid, wordList.words);
+    let tmpAllSolutions = findAllSolutions(grid, wordList.words, letter, wordLength);
     setAllSolutions(tmpAllSolutions);
-  }, [grid]);
+  }, [grid, letter, wordLength]);
  
   // This will run when gameState changes.
   // When a new game is started, generate a new random grid and reset solutions
@@ -41,17 +42,6 @@ function App() {
       setFoundSolutions([]);
     }
   }, [gameState, size]);
-
-  // This will run when gameState changes
-  // When a new game is started, generate a new random grid with solutions that start with a specific lettter
-  useEffect(() => {
-    const wordList = require('./full-wordlist.json');
-    if (gameState === GAME_STATE.IN_PROGRESS) {
-      setLetter(spfLetter(letter, wordList));
-      setFoundSolutions([]);
-    }
-  }, [gameState, letter]);
-
 
 
   function correctAnswerFound(answer) {
@@ -73,6 +63,7 @@ function App() {
                        setGameState={(state) => setGameState(state)}
                        setSize={(state) => setSize(state)}
                        setLetter={(state) => setLetter(state)}
+                       setLength={(state) => setLength(state)}
                        setTotalTime={(state) => setTotalTime(state)}
                        numFound={foundSolutions.length}
                        theGrid={JSON.stringify(grid)}
