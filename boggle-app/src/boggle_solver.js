@@ -1,4 +1,13 @@
 // James Fisher @02939673
+// let grid = [
+// 	["A", "B", "C", "D", "I"],
+// 	["E", "F", "G", "H", "F"],
+// 	["I", "B", "S", "L", "E"],
+// 	["A", "N", "O", "P", "C"],
+// 	["T", "L", "W", "V", "E"],
+//   ];
+// var dictionary = ["baq", "qkg", "kje", "gcfi", "kfjil", "bope", "bosg"];
+// const wordList = require('./full-wordlist.json');
 
 // Find letter function
 function boggle(table, word) {
@@ -71,7 +80,7 @@ function DFS(table, row, column, index, word) {
 	return correctWord;
 }
 
-export function findAllSolutions(grid, dictionary) {
+function findAllSolutions(grid, dictionary, letter, wordLength) {
 	let solutions = [];
 
 	// Turn all strings to lower case
@@ -117,7 +126,29 @@ export function findAllSolutions(grid, dictionary) {
 	// See if dictionary words are present in table/grid
 	for (i = 0; i < dictionary.length; i++) {
 		if (boggle(grid, dictionary[i]) === true) {
-			solutions.push(dictionary[i]);
+			if (letter === 'None' && wordLength === null){
+				solutions.push(dictionary[i]);
+			}
+
+			if (letter !== 'None' && wordLength === null){
+				if (dictionary[i].startsWith(letter)){
+					solutions.push(dictionary[i])
+				}
+			}
+			if (letter === 'None' && wordLength !== null){
+				console.log("test length");
+				if (dictionary[i].length === wordLength){
+					solutions.push(dictionary[i])
+				}
+			}
+			if (letter !== 'None' && wordLength !== null){
+				if (dictionary[i].length === wordLength && dictionary[i].startsWith(letter)){
+					solutions.push(dictionary[i])
+				}
+			}
+			// else{
+			// 	solutions.push(dictionary[i]);
+			// }
 		}
 	}
 	// Reverse Qu case
@@ -135,18 +166,5 @@ export function findAllSolutions(grid, dictionary) {
 	}
 	return solutions;
 };
-
-const wordList = require('./full-wordlist.json');
-// Function to replace wordList with specific letter list
-export function spfLetter(wordList, letter){
-	var singleLetters = [];
-	for (let i=0; i < wordList.words.length; i++){
-		if (wordList.words[i].startsWith(letter) === true){
-			singleLetters.push(wordList.words[i]);
-		}
-	}	
-	return singleLetters;
-}
-// console.log(spfLetter(wordList, 'x'));
-
-// export default findAllSolutions;
+// console.log(findAllSolutions(grid, wordList.words, 'None', null ));
+export default findAllSolutions;
