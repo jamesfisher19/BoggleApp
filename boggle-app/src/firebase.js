@@ -2,19 +2,22 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAwY7AerG8rxQcSdvDPkUNnjBRf7WPta-E",
-  authDomain: "bogglesolver-39a9b.firebaseapp.com",
-  projectId: "bogglesolver-39a9b",
-  storageBucket: "bogglesolver-39a9b.appspot.com",
-  messagingSenderId: "300043131515",
-  appId: "1:300043131515:web:d98c491c33025408e6a0de",
-  measurementId: "G-S0GRRVPJXC"
+  apiKey: "AIzaSyC0h1U9kTvffoqEbsijK-0uGzZ9NGB4R2U",
+  authDomain: "swe-boggle-project-3402c.firebaseapp.com",
+  projectId: "swe-boggle-project-3402c",
+  storageBucket: "swe-boggle-project-3402c.appspot.com",
+  messagingSenderId: "148768266996",
+  appId: "1:148768266996:web:4a0a708f2bc6e4e9f5dca1",
+  measurementId: "G-PT1K75XE4E"
 };
 
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+export const auth = firebase.auth(); // firebase authentication
+export const firestore = firebase.firestore(); // firestore db
 export default firebase;
