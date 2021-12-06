@@ -155,7 +155,6 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength,
         <Select
           labelId="sizelabel"
           id="sizemenu"
-          value=''
           onChange={handleSizeMenuChange}
         >
           <MenuItem value={3}>3</MenuItem>
@@ -180,7 +179,6 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength,
         <Select
           labelId="letterlabel"
           id="lettermenu"
-          value=''
           onChange={handleLetterChoice}
         >
           <MenuItem value={'None'}>None</MenuItem>
@@ -222,7 +220,6 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength,
         <Select
           labelId="lengthlabel"
           id="lengthmenu"
-          value=''
           onChange={handleLengthChoice}
         >
           <MenuItem value={null}>None</MenuItem>
@@ -249,7 +246,6 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength,
        <Select
          labelId="leaderboardlabel"
          id="leaderboardmenu"
-         value=''
          onChange={handleGridChange}
        >
        {leaderBoard.map((item, idx) => {
