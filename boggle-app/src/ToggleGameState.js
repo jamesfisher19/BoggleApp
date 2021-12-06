@@ -8,7 +8,7 @@ import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import './ToggleGameState.css';
 import { collection, addDoc, query, getDocs, orderBy, limit } from "firebase/firestore";
-import db from './firebase.js';
+import {firestore} from './firebase.js';
 
 function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength, setTotalTime, numFound, theGrid, setGrid}) {
 
@@ -52,7 +52,7 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength,
       // build query and bind results to menu list
  
     try {
-       const q = query(collection(db, "LeaderBoard"), orderBy("boardSize"), orderBy("solveTime", "asc"), limit(10));
+       const q = query(collection(firestore, "LeaderBoard"), orderBy("boardSize"), orderBy("solveTime", "asc"), limit(10));
 
        const querySnapshot = await getDocs(q);
        querySnapshot.forEach((doc) => {
@@ -73,7 +73,7 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength,
   async function StoreGameResults() {
 
     try {
-      /*const docRef =*/ await addDoc(collection(db, "LeaderBoard"), {
+      /*const docRef =*/ await addDoc(collection(firestore, "LeaderBoard"), {
       letterChoice: letterChoice,
       lengthChoice: lengthChoice,
       boardSize: boardSize,
