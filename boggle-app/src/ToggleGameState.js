@@ -251,7 +251,7 @@ function ToggleGameState({gameState, setGameState, setSize, setLetter,setLength,
        {leaderBoard.map((item, idx) => {
         return (
             <MenuItem key={idx} value={item.theBoard}>
-              Size: {item.boardSize} Words Found: {item.numFound} Name: {item.playerName}
+              Size: {item.boardSize} Words Found: {item.numFound} Name: {item.playerName} Time: {item.solveTime} Letter: {item.letterChoice} Length: {item.lengthChoice} 
             </MenuItem>
         );
        })}
