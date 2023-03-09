@@ -6,7 +6,6 @@ import GuessInput from './GuessInput.js';
 import FoundSolutions from './FoundSolutions.js';
 import SummaryResults from './SummaryResults.js';
 import ToggleGameState from './ToggleGameState.js';
-import logo from './logo.png';
 import './App.css';
 import {GAME_STATE} from './GameState.js';
 import {RandomGrid} from './randomGen.js';
@@ -57,8 +56,7 @@ function App() {
           <p>Welcome, {user.displayName} ({user.email})</p> 
         } 
        </header>
-        <img src={logo}  width="20%" height="20%"  alt="Boggle Logo"/>
-
+        <h1 className="title">Boggle Solver</h1>
         <ToggleGameState gameState={gameState}
                        setGameState={(state) => setGameState(state)}
                        setSize={(state) => setSize(state)}
