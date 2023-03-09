@@ -6,7 +6,6 @@ import GuessInput from './GuessInput.js';
 import FoundSolutions from './FoundSolutions.js';
 import SummaryResults from './SummaryResults.js';
 import ToggleGameState from './ToggleGameState.js';
-import logo from './logo.png';
 import './App.css';
 import {GAME_STATE} from './GameState.js';
 import {RandomGrid} from './randomGen.js';

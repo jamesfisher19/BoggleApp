@@ -21,10 +21,10 @@
   display: flex;
   position: relative;
   top: -10px;
-  left: 527px;
-  width: 400px;
+  left: 633px;
+  width: 181px;
   height: 61px;
-  /* background-color: rgba(226, 43, 83, 0.455); */
+  background-color: rgba(226, 43, 83, 0.455);
 }
 
 .Play-existing-game {

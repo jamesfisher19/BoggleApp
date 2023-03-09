@@ -149,14 +149,14 @@ function ToggleGameState({
   return (
     <div>
       <div className="game-state-buttons">
-        {(gameState === GAME_STATE.BEFORE ||
+        {/* {(gameState === GAME_STATE.BEFORE ||
           gameState === GAME_STATE.ENDED) && (
           <div className="Play-existing-game">
             <Button variant="outlined" onClick={() => showLeaderBoard()}>
               Play Existing Game
             </Button>
           </div>
-        )}
+        )} */}
 
         {gameState !== GAME_STATE.ADD_LEADERBOARD && (
           <Button
