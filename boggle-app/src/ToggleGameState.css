@@ -1,52 +1,44 @@
-.Toggle-game-state {
+.game-customizations {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 120px;
+  left: 430px;
+  width: 600px;
+  height: 100px;
+  /* background-color: rgba(137, 43, 226, 0.455); */
+}
 
-  text-align: center;
-  margin-top: -50pt;
-  margin-bottom: 25pt;
+
+/* .Toggle-game-state {
+
   font-family: Bradley Hand, cursive;
   background-color: #759CDD;
   height: 100%;
-}
+} */
 
+.game-state-buttons {
+  display: flex;
+  position: relative;
+  top: -10px;
+  left: 527px;
+  width: 400px;
+  height: 61px;
+  /* background-color: rgba(226, 43, 83, 0.455); */
+}
 
 .Play-existing-game {
-  position: absolute;
-  text-align: center;
-  margin-top: 25;
-  margin-left: 300pt;
-  margin-bottom: 2pt;
-  font-family: Bradley Hand, cursive;
-  height: 100%;
+  margin-right: 35px;
 }
-/* 
-.pencil{
-  position: fixed;
-  top: 0;
-  left: 0;
-} */
 
 .Button{
   color: blue;
   font-family: Bradley Hand, cursive;
 }
 
-.Input-select-size {
-  margin-top: -28.4pt;
-  margin-left: 230pt;
-  margin-bottom: 25pt;
-  font-family: Bradley Hand, cursive;
-}
-
-.Input-select-letter {
-  margin-top: -66.4pt;
-  margin-left: 400pt;
-  margin-bottom: 25pt;
-  font-family: Bradley Hand, cursive;
-}
-
-.Input-select-length {
-  margin-top: -66.4pt;
-  margin-left: 600pt;
-  margin-bottom: 25pt;
-  font-family: Bradley Hand, cursive;
+.Input-select-size, .Input-select-letter, .Input-select-length{
+  width: 150px;
+  height: 65px;
+  border-radius: 10px;
+  background-color: rgba(36, 25, 240, 0.563);
 }
